@@ -261,6 +261,7 @@ const handlePlantsClick = (e) => {
      }));
   };
 
+  
     return (
         <div>
              <div className="navbar" style={styleObj}>
@@ -293,7 +294,9 @@ const handlePlantsClick = (e) => {
                             <div className="product-title">{plant.name}</div>
                             <div className='product-price'>{plant.cost}</div>
                             <div>{plant.description}</div>
-                            <button  className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>  
+                            {!items.find((sample)=>sample.name===plant.name)?(
+                            <button  className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>)
+                            :(<h3 className='product-button added-to-cart'>Added to Cart</h3>) }
                         </div>
                         ))}
                     </div>
